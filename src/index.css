@@ -2,8 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  @apply bg-neutral-950;
+}
+
 @layer components {
   .container-fluid {
-    @apply mx-auto px-4 sm:px-6 lg:px-8;
+    @apply px-4 mx-auto sm:px-6 lg:px-8;
   }
 }

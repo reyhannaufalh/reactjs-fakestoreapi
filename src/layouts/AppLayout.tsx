@@ -1,5 +1,7 @@
 import { ReactNode } from "react";
 import Navbar from "../components/organisms/Navbar";
+import { Provider } from "react-redux";
+import store from "../redux/store";
 
 interface AppLayoutProps {
   children: ReactNode;
@@ -7,13 +9,11 @@ interface AppLayoutProps {
 
 export default function AppLayout({ children }: AppLayoutProps) {
   return (
-    <div className="bg-neutral-950">
-      <Navbar />
-
-      <main className="grid grid-cols-12 w-full">
-        <section className="col-span-9 p-8">{children}</section>
-        <aside className="col-span-3 h-screen sticky"></aside>
+    <Provider store={store}>
+      <main>
+        <Navbar />
+        <section className="text-white">{children}</section>
       </main>
-    </div>
+    </Provider>
   );
 }

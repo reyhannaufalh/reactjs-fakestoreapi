@@ -20,29 +20,25 @@ export default function ProductCard({
   gridCols = "col-span-12 md:col-span-6 lg:col-span-4",
 }: ProductCardProps) {
   return (
-    <div
+    <Link
+      to={`/products/${id}`}
       className={`rounded-lg border ${gridCols} text-white p-6 shadow-sm border-neutral-800 bg-neutral-900`}
     >
-      <div className="h-56 w-full">
-        <Link to={`/products/${id}`}>
-          <img className="mx-auto h-full" src={image} alt={title} />
-        </Link>
+      <div className="w-full h-56">
+        <img className="h-full mx-auto" src={image} alt={title} />
       </div>
       <div className="pt-6">
         <p className="text-sm text-neutral-300">{category}</p>
 
-        <Link
-          to={`/products/${id}`}
-          className="text-lg font-semibold leading-tight hover:underline my-3 block"
-        >
+        <h1 className="block my-3 text-lg font-semibold leading-tight hover:underline">
           {title}
-        </Link>
+        </h1>
 
         <div className="line-clamp-3">
           <p>{description}</p>
         </div>
 
-        <div className="mt-4 flex items-center justify-between gap-4">
+        <div className="flex items-center justify-between gap-4 mt-4">
           <p className="text-2xl font-extrabold leading-tight">${price}</p>
 
           <button
@@ -53,6 +49,6 @@ export default function ProductCard({
           </button>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

@@ -8,6 +8,7 @@ type InputFieldProps = {
   placeholder: string;
   label: string;
   required: boolean;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 export const InputField: React.FC<InputFieldProps> = ({
@@ -17,6 +18,7 @@ export const InputField: React.FC<InputFieldProps> = ({
   placeholder,
   required,
   label,
+  onChange,
 }) => {
   return (
     <div>
@@ -27,6 +29,7 @@ export const InputField: React.FC<InputFieldProps> = ({
         id={id}
         placeholder={placeholder}
         required={required}
+        onChange={onChange}
       />
     </div>
   );
